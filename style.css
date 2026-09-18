@@ -76,7 +76,7 @@ a {
   transform: scaleX(1);
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (slider: a few slides, one shown at a time) ---------- */
 .hero {
   position: relative;
   background-color: var(--petrol);
@@ -89,7 +89,39 @@ a {
     transparent 5px
   );
   color: var(--off-white);
-  padding: 120px 32px 140px;
+}
+
+.hero-slide {
+  display: none;
+  padding: 120px 32px 110px;
+}
+
+.hero-slide.active {
+  display: block;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(247, 247, 243, 0.35);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.hero-dot.active {
+  background: var(--gold);
 }
 
 .hero-inner {
@@ -1083,8 +1115,8 @@ a {
     flex-wrap: wrap;
   }
 
-  .hero {
-    padding: 70px 24px 90px;
+  .hero-slide {
+    padding: 70px 24px 80px;
   }
 
   .category-grid {

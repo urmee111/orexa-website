@@ -34,12 +34,40 @@
   </header>
 
   <section class="hero">
-    <div class="hero-inner">
-      <h1>Sharp when you start.<br />Sharp when you leave.</h1>
-      <p class="hero-sub">
-        Formal shirts cut from fabric that holds its shape, morning to evening.
-      </p>
-      <a href="#" class="btn-primary">Shop the Collection</a>
+    <div class="hero-slide active" data-slide="1">
+      <div class="hero-inner">
+        <h1>Sharp when you start.<br />Sharp when you leave.</h1>
+        <p class="hero-sub">
+          Formal shirts cut from fabric that holds its shape, morning to evening.
+        </p>
+        <a href="#new-arrivals" class="btn-primary">Shop the Collection</a>
+      </div>
+    </div>
+
+    <div class="hero-slide" data-slide="2">
+      <div class="hero-inner">
+        <h1>Buy 2, get 1 free.</h1>
+        <p class="hero-sub">
+          On select formal shirts, for a limited time.
+        </p>
+        <a href="offers.html" class="btn-primary">See offer details</a>
+      </div>
+    </div>
+
+    <div class="hero-slide" data-slide="3">
+      <div class="hero-inner">
+        <h1>Up to 15% off.</h1>
+        <p class="hero-sub">
+          Selected shirts, panjabi and trousers, discounted now.
+        </p>
+        <a href="discounts.html" class="btn-primary">Shop the Sale</a>
+      </div>
+    </div>
+
+    <div class="hero-dots">
+      <button class="hero-dot active" data-target="0" aria-label="Slide 1"></button>
+      <button class="hero-dot" data-target="1" aria-label="Slide 2"></button>
+      <button class="hero-dot" data-target="2" aria-label="Slide 3"></button>
     </div>
   </section>
 
@@ -83,7 +111,7 @@
     </div>
   </section>
 
-  <section class="new-arrivals">
+  <section class="new-arrivals" id="new-arrivals">
     <div class="new-arrivals-inner">
       <h2>New arrivals</h2>
 
@@ -270,6 +298,45 @@
       <p>&copy; 2026 OREXA. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // This runs at the very end of the page, after the hero markup above
+    // already exists, so it can safely find and work with those elements.
+
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    let currentSlide = 0;
+    let autoAdvanceTimer;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      showSlide((currentSlide + 1) % slides.length);
+    }
+
+    function startAutoAdvance() {
+      autoAdvanceTimer = setInterval(nextSlide, 6000);
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        showSlide(i);
+        clearInterval(autoAdvanceTimer); // manual click resets the timer
+        startAutoAdvance();
+      });
+    });
+
+    startAutoAdvance();
+
+    // pause the auto-advance while a visitor is actually looking at the hero
+    const heroSection = document.querySelector('.hero');
+    heroSection.addEventListener('mouseenter', () => clearInterval(autoAdvanceTimer));
+    heroSection.addEventListener('mouseleave', startAutoAdvance);
+  </script>
 
 </body>
 </html>
