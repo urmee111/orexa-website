@@ -76,9 +76,15 @@ a {
   transform: scaleX(1);
 }
 
+/* current page: same underline as hover, but always shown */
+.main-nav a.active::after {
+  transform: scaleX(1);
+}
+
 /* ---------- Hero (slider: a few slides, one shown at a time) ---------- */
 .hero {
   position: relative;
+  touch-action: pan-y; /* let vertical page-scroll through, but leave horizontal swipes to our own JS */
   background-color: var(--petrol);
   /* subtle diagonal micro-texture, echoes the "micro twill" fabric weave */
   background-image: repeating-linear-gradient(
@@ -122,6 +128,33 @@ a {
 
 .hero-dot.active {
   background: var(--gold);
+}
+
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--off-white);
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 12px;
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+
+.hero-arrow:hover {
+  opacity: 1;
+}
+
+.hero-arrow--prev {
+  left: 8px;
+}
+
+.hero-arrow--next {
+  right: 8px;
 }
 
 .hero-inner {
@@ -1108,6 +1141,10 @@ a {
 
   .hero-slide {
     padding: 70px 24px 80px;
+  }
+
+  .hero-arrow {
+    display: none;
   }
 
   .category-grid {

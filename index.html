@@ -69,6 +69,9 @@
       <button class="hero-dot" data-target="1" aria-label="Slide 2"></button>
       <button class="hero-dot" data-target="2" aria-label="Slide 3"></button>
     </div>
+
+    <button class="hero-arrow hero-arrow--prev" aria-label="Previous slide">&#8249;</button>
+    <button class="hero-arrow hero-arrow--next" aria-label="Next slide">&#8250;</button>
   </section>
 
   <section class="categories">
@@ -314,7 +317,7 @@
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.hero-dot');
     let currentSlide = 0;
-    let autoAdvanceTimer;
+    let isHovering = false;
 
     function showSlide(index) {
       slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
@@ -326,24 +329,54 @@
       showSlide((currentSlide + 1) % slides.length);
     }
 
-    function startAutoAdvance() {
-      autoAdvanceTimer = setInterval(nextSlide, 6000);
-    }
-
+    // clicking a dot just shows that slide directly -- it doesn't need to
+    // touch the timer at all, so there's nothing for it to conflict with
     dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        showSlide(i);
-        clearInterval(autoAdvanceTimer); // manual click resets the timer
-        startAutoAdvance();
-      });
+      dot.addEventListener('click', () => showSlide(i));
     });
 
-    startAutoAdvance();
+    // ---------- Left / right arrow buttons ----------
+    document.querySelector('.hero-arrow--prev').addEventListener('click', () => {
+      showSlide((currentSlide - 1 + slides.length) % slides.length);
+    });
 
-    // pause the auto-advance while a visitor is actually looking at the hero
+    document.querySelector('.hero-arrow--next').addEventListener('click', () => {
+      nextSlide();
+    });
+
+    // one single timer, running the whole time the page is open. Every 6s
+    // it only actually advances if the visitor isn't currently hovering.
+    setInterval(() => {
+      if (!isHovering) {
+        nextSlide();
+      }
+    }, 6000);
+
     const heroSection = document.querySelector('.hero');
-    heroSection.addEventListener('mouseenter', () => clearInterval(autoAdvanceTimer));
-    heroSection.addEventListener('mouseleave', startAutoAdvance);
+    heroSection.addEventListener('mouseenter', () => { isHovering = true; });
+    heroSection.addEventListener('mouseleave', () => { isHovering = false; });
+
+    // ---------- Swipe support (touch devices) ----------
+    let touchStartX = 0;
+
+    heroSection.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isHovering = true; // pause auto-advance while a visitor is touching it
+    });
+
+    heroSection.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const distance = touchStartX - touchEndX;
+      const swipeThreshold = 50; // px -- smaller finger wiggles don't count as a swipe
+
+      if (Math.abs(distance) > swipeThreshold) {
+        if (distance > 0) {
+          nextSlide(); // swiped left -> next slide
+        } else {
+          showSlide((currentSlide - 1 + slides.length) % slides.length); // swiped right -> previous
+        }
+      }
+    });
   </script>
 
 </body>
