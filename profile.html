@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customer Reviews — OREXA</title>
+  <title>Profile (Design Preview) — OREXA</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,25 +32,50 @@
     </div>
   </header>
 
-  <main class="reviews-page">
-    <div class="reviews-page-inner">
+  <main class="profile-page">
+    <div class="profile-page-inner">
       <a href="index.html" class="back-link">&larr; Back to shop</a>
 
-      <h1>Customer reviews</h1>
-      <p class="reviews-page__intro">
-        Real feedback from OREXA customers, shared as received.
-      </p>
+      <div class="mockup-note">
+        <strong>Design preview only.</strong> This page is shown with example data
+        so the layout can be reviewed. Real accounts, login and live credit
+        balances need a backend system, which isn't part of this file.
+      </div>
 
-      <!-- Each box below is one review screenshot. To add a new one later,
-           copy a <div class="review-shot">...</div> block and put an
-           <img src="..." alt="..."> inside it instead of the placeholder text. -->
-      <div class="reviews-grid">
-        <div class="review-shot">Review screenshot</div>
-        <div class="review-shot">Review screenshot</div>
-        <div class="review-shot">Review screenshot</div>
-        <div class="review-shot">Review screenshot</div>
-        <div class="review-shot">Review screenshot</div>
-        <div class="review-shot">Review screenshot</div>
+      <h1>Your profile</h1>
+      <p class="profile-page__customer">[Customer Name] &middot; [Phone Number]</p>
+
+      <div class="credit-panel">
+        <span class="credit-panel__label">Available credit</span>
+        <span class="credit-panel__amount">&#2547;500</span>
+        <p class="credit-panel__note">
+          Credit isn't applied automatically at checkout. To use it, message us
+          on WhatsApp or Messenger when you're ready to order.
+        </p>
+        <a
+          href="https://wa.me/8801XXXXXXXXX"
+          class="btn-primary btn-whatsapp"
+          target="_blank"
+          rel="noopener"
+        >
+          Message us on WhatsApp
+        </a>
+      </div>
+
+      <div class="credit-history">
+        <h2>Credit history</h2>
+        <ul class="credit-history__list">
+          <li>
+            <span class="credit-history__date">10 Sep 2026</span>
+            <span class="credit-history__desc">Added by OREXA support</span>
+            <span class="credit-history__amount">+&#2547;300</span>
+          </li>
+          <li>
+            <span class="credit-history__date">2 Aug 2026</span>
+            <span class="credit-history__desc">Welcome bonus</span>
+            <span class="credit-history__amount">+&#2547;200</span>
+          </li>
+        </ul>
       </div>
     </div>
   </main>

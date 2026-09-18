@@ -400,6 +400,120 @@ a {
   gap: 32px 20px;
 }
 
+.all-products h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  margin-top: 24px;
+  margin-bottom: 28px;
+}
+
+/* ---------- Combo page ---------- */
+.combo-page {
+  padding: 50px 32px 100px;
+}
+
+.combo-page-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.combo-page h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.combo-page__intro {
+  color: rgba(13, 59, 62, 0.75);
+  margin-bottom: 40px;
+}
+
+.combo-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid rgba(13, 59, 62, 0.15);
+}
+
+.combo-card:last-child {
+  border-bottom: 1px solid rgba(13, 59, 62, 0.15);
+}
+
+.combo-card__images {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.combo-card__image {
+  width: 110px;
+  aspect-ratio: 3 / 4;
+  background-color: #E3E9E7;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(13, 59, 62, 0.035) 0px,
+    rgba(13, 59, 62, 0.035) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  border: 1px dashed rgba(13, 59, 62, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: rgba(13, 59, 62, 0.5);
+  text-align: center;
+}
+
+.combo-card__plus {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--active-green);
+}
+
+.combo-card__info {
+  flex: 1;
+}
+
+.combo-card__items {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.combo-card__pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.combo-card__original {
+  text-decoration: line-through;
+  color: rgba(13, 59, 62, 0.45);
+  font-size: 0.9rem;
+}
+
+.combo-card__combo-price {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--active-green);
+}
+
+.combo-card__savings {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--petrol);
+  background: rgba(212, 175, 55, 0.18);
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   background: var(--petrol);
@@ -804,6 +918,113 @@ a {
      so screenshots of any shape fill this box cleanly */
 }
 
+/* ---------- Profile mockup page ---------- */
+.profile-page {
+  padding: 50px 32px 100px;
+}
+
+.profile-page-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.mockup-note {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px dashed rgba(212, 175, 55, 0.55);
+  padding: 14px 18px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(13, 59, 62, 0.85);
+  margin: 24px 0 36px;
+}
+
+.profile-page h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+}
+
+.profile-page__customer {
+  color: rgba(13, 59, 62, 0.6);
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+}
+
+.credit-panel {
+  background: var(--petrol);
+  color: var(--off-white);
+  padding: 48px 40px;
+  margin-bottom: 48px;
+}
+
+.credit-panel__label {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(247, 247, 243, 0.75);
+  margin-bottom: 8px;
+}
+
+.credit-panel__amount {
+  display: block;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.credit-panel__note {
+  max-width: 50ch;
+  font-size: 0.92rem;
+  color: rgba(247, 247, 243, 0.8);
+  margin-bottom: 24px;
+}
+
+.credit-panel .btn-whatsapp {
+  display: inline-block;
+  width: auto;
+}
+
+.credit-history {
+  margin-bottom: 60px;
+}
+
+.credit-history h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.credit-history__list {
+  list-style: none;
+}
+
+.credit-history__list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(13, 59, 62, 0.12);
+  font-size: 0.92rem;
+}
+
+.credit-history__date {
+  color: rgba(13, 59, 62, 0.6);
+  flex: 0 0 110px;
+}
+
+.credit-history__desc {
+  flex: 1;
+}
+
+.credit-history__amount {
+  font-weight: 600;
+  color: var(--active-green);
+  white-space: nowrap;
+}
+
 .size-chart table {
   width: 100%;
   border-collapse: collapse;
@@ -904,6 +1125,12 @@ a {
 
   .reviews-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .combo-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 }
 
