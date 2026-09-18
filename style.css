@@ -366,7 +366,27 @@ a {
   gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
+  padding-bottom: 18px;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(13, 59, 62, 0.3) transparent; /* Firefox */
+}
+
+/* Chrome / Edge / Safari: fixed-size scrollbar, only the colour changes on hover */
+.new-arrivals__row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.new-arrivals__row::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.new-arrivals__row::-webkit-scrollbar-thumb {
+  background: rgba(13, 59, 62, 0.25);
+  border-radius: 2px;
+}
+
+.new-arrivals__row::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 59, 62, 0.45);
 }
 
 .new-arrivals__row .product-card {
