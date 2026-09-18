@@ -1,0 +1,425 @@
+/* ---------- Setup ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --petrol: #0D3B3E;       /* main brand color: text, header, structure */
+  --active-green: #095051; /* hover / active state for buttons + links */
+  --off-white: #F7F7F3;    /* main background */
+  --gold: #D4AF37;         /* primary call-to-action color, used sparingly */
+}
+
+body {
+  font-family: 'Satoshi', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--off-white);
+  color: var(--petrol);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  border-bottom: 1px solid rgba(13, 59, 62, 0.12);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 32px;
+}
+
+.logo {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.main-nav {
+  display: flex;
+  gap: 32px;
+}
+
+.main-nav a {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+/* thin gold underline that grows in on hover, instead of a color-only change */
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.main-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background-color: var(--petrol);
+  /* subtle diagonal micro-texture, echoes the "micro twill" fabric weave */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  color: var(--off-white);
+  padding: 120px 32px 140px;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  line-height: 1.15;
+  max-width: 16ch;
+  margin-bottom: 24px;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  max-width: 42ch;
+  color: rgba(247, 247, 243, 0.82);
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--petrol);
+  padding: 14px 32px;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* client spec: active/click state turns Active Green */
+.btn-primary:hover,
+.btn-primary:active {
+  background: var(--active-green);
+  color: var(--off-white);
+}
+
+/* ---------- Categories ---------- */
+.categories {
+  padding: 90px 32px;
+}
+
+.categories-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categories h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 36px;
+}
+
+.category-feature {
+  display: block;
+  color: var(--petrol);
+  margin-bottom: 20px;
+}
+
+.category-feature__image {
+  aspect-ratio: 16 / 7;
+  background-color: #E3E9E7;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(13, 59, 62, 0.035) 0px,
+    rgba(13, 59, 62, 0.035) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  border: 1px dashed rgba(13, 59, 62, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(13, 59, 62, 0.5);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  display: block;
+  color: var(--petrol);
+}
+
+.category-card__image {
+  aspect-ratio: 4 / 3;
+  background-color: #E3E9E7;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(13, 59, 62, 0.035) 0px,
+    rgba(13, 59, 62, 0.035) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  border: 1px dashed rgba(13, 59, 62, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(13, 59, 62, 0.5);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.category-card__info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.category-card__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.category-feature .category-card__name {
+  font-size: 1.3rem;
+}
+
+.category-card__cta {
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--active-green);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+
+.category-card__cta::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.category-card:hover .category-card__cta::after,
+.category-feature:hover .category-card__cta::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Product cards (shared by New Arrivals + All Products) ---------- */
+.product-card {
+  display: block;
+  color: var(--petrol);
+}
+
+.product-card__image-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.product-card__image {
+  position: absolute;
+  inset: 0;
+  background-color: #E3E9E7;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(13, 59, 62, 0.035) 0px,
+    rgba(13, 59, 62, 0.035) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(13, 59, 62, 0.5);
+  font-size: 0.8rem;
+  font-style: italic;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* 2nd image starts invisible; swaps in on hover along with a slight zoom */
+.product-card__image--2 {
+  opacity: 0;
+}
+
+.product-card:hover .product-card__image--1 {
+  opacity: 0;
+}
+
+.product-card:hover .product-card__image--2 {
+  opacity: 1;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.04);
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+  padding: 5px 9px;
+  border-radius: 2px;
+}
+
+/* free delivery: quiet outline, not gold — gold stays reserved for the main CTA */
+.badge--delivery {
+  background: var(--off-white);
+  border: 1px solid var(--petrol);
+  color: var(--petrol);
+}
+
+.badge--off {
+  background: var(--petrol);
+  color: var(--off-white);
+}
+
+.product-card__info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.product-card__name {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.product-card__price {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--active-green);
+  white-space: nowrap;
+}
+
+/* ---------- New Arrivals + All Products ---------- */
+.new-arrivals,
+.all-products {
+  padding: 10px 32px 80px;
+}
+
+.new-arrivals-inner,
+.all-products-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.new-arrivals h2,
+.all-products h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 36px;
+}
+
+/* "shown in one line": a horizontally-scrolling row instead of wrapping */
+.new-arrivals__row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.new-arrivals__row .product-card {
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+}
+
+.all-products__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 20px;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+  }
+
+  .main-nav {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    padding: 70px 24px 90px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-feature__image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .all-products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .new-arrivals,
+  .all-products {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
