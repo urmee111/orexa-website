@@ -673,10 +673,30 @@ a {
 }
 
 .back-link {
+  position: relative;
   display: inline-block;
   margin-bottom: 28px;
   font-size: 0.9rem;
   color: var(--active-green);
+  padding-bottom: 4px;
+}
+
+/* same underline-on-hover treatment as .main-nav a */
+.back-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.back-link:hover::after {
+  transform: scaleX(1);
 }
 
 .product-layout {
@@ -841,6 +861,30 @@ a {
 /* hide the default browser-drawn triangle marker */
 .product-features summary::-webkit-details-marker {
   display: none;
+}
+
+/* same underline-on-hover treatment as .main-nav a / .back-link,
+   scoped to just the "Details" text rather than the whole summary row */
+.product-features__label {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.product-features__label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.product-features summary:hover .product-features__label::after {
+  transform: scaleX(1);
 }
 
 /* our own +/- indicator instead, swaps based on the open/closed state */
