@@ -28,6 +28,7 @@
         <a href="discounts.html">%OFF</a>
         <a href="combo.html">Combo</a>
         <a href="reviews.html">Review</a>
+        <a href="profile.html" class="active">Profile</a>
       </nav>
     </div>
   </header>
@@ -45,25 +46,72 @@
       <h1>Your profile</h1>
       <p class="profile-page__customer">[Customer Name] &middot; [Phone Number]</p>
 
-      <div class="credit-panel">
+      <!-- Credit is the first thing on the profile on purpose: the customer
+           should never have to open a separate "Credit" screen to see it. -->
+      <section class="credit-panel">
         <span class="credit-panel__label">Available credit</span>
         <span class="credit-panel__amount">&#2547;500</span>
-        <p class="credit-panel__note">
-          Credit isn't applied automatically at checkout. To use it, message us
-          on WhatsApp or Messenger when you're ready to order.
-        </p>
-        <a
-          href="https://wa.me/8801XXXXXXXXX"
-          class="btn-primary btn-whatsapp"
-          target="_blank"
-          rel="noopener"
-        >
-          Message us on WhatsApp
-        </a>
-      </div>
 
-      <div class="credit-history">
+        <dl class="credit-panel__meta">
+          <div>
+            <dt>Linked to</dt>
+            <dd>[Phone Number]</dd>
+          </div>
+          <div>
+            <dt>Last updated</dt>
+            <dd>10 Sep 2026</dd>
+          </div>
+        </dl>
+
+        <p class="credit-panel__note">
+          Credit is never applied automatically at checkout. To spend it, message
+          us on WhatsApp or Messenger from the number above and we'll take it off
+          your total.
+        </p>
+
+        <div class="credit-panel__actions">
+          <a
+            href="https://wa.me/8801XXXXXXXXX"
+            class="btn-primary btn-whatsapp"
+            target="_blank"
+            rel="noopener"
+          >
+            Message us on WhatsApp
+          </a>
+          <!-- replace with the real page username, e.g. https://m.me/orexa.bd -->
+          <a
+            href="https://m.me/orexa"
+            class="btn-outline-light"
+            target="_blank"
+            rel="noopener"
+          >
+            Message us on Messenger
+          </a>
+        </div>
+      </section>
+
+      <section class="credit-steps">
+        <h2>How to use your credit</h2>
+        <ol class="credit-steps__list">
+          <li>Place your order the usual way — nothing changes at checkout.</li>
+          <li>
+            Message us on WhatsApp or Messenger with your order and the phone
+            number your credit sits on.
+          </li>
+          <li>
+            We confirm your balance and subtract the credit from the amount you
+            pay.
+          </li>
+        </ol>
+      </section>
+
+      <section class="credit-history">
         <h2>Credit history</h2>
+        <p class="credit-history__intro">
+          Every credit OREXA adds to [Phone Number] shows up here, with the exact
+          amount and the date it was added.
+        </p>
+
         <ul class="credit-history__list">
           <li>
             <span class="credit-history__date">10 Sep 2026</span>
@@ -71,12 +119,22 @@
             <span class="credit-history__amount">+&#2547;300</span>
           </li>
           <li>
+            <span class="credit-history__date">21 Aug 2026</span>
+            <span class="credit-history__desc">Return adjustment &mdash; order #1042</span>
+            <span class="credit-history__amount">+&#2547;150</span>
+          </li>
+          <li>
             <span class="credit-history__date">2 Aug 2026</span>
             <span class="credit-history__desc">Welcome bonus</span>
-            <span class="credit-history__amount">+&#2547;200</span>
+            <span class="credit-history__amount">+&#2547;50</span>
           </li>
         </ul>
-      </div>
+
+        <p class="credit-history__total">
+          <span>Total added</span>
+          <span class="credit-history__amount">&#2547;500</span>
+        </p>
+      </section>
     </div>
   </main>
 

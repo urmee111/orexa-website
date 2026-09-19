@@ -196,6 +196,26 @@ a {
   color: var(--off-white);
 }
 
+/* secondary action that sits on a Petrol Green panel:
+   outline only, so the gold button stays the single primary CTA */
+.btn-outline-light {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 1px solid rgba(247, 247, 243, 0.45);
+  border-radius: 2px;
+  color: var(--off-white);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:active {
+  background: var(--off-white);
+  border-color: var(--off-white);
+  color: var(--active-green);
+}
+
 /* ---------- Categories ---------- */
 .categories {
   padding: 90px 32px;
@@ -1029,6 +1049,28 @@ a {
   margin-bottom: 20px;
 }
 
+/* which phone number the balance belongs to, and when it last moved */
+.credit-panel__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 48px;
+  padding: 20px 0;
+  margin-bottom: 24px;
+  border-top: 1px solid rgba(247, 247, 243, 0.18);
+  border-bottom: 1px solid rgba(247, 247, 243, 0.18);
+}
+
+.credit-panel__meta dt {
+  font-size: 0.82rem;
+  color: rgba(247, 247, 243, 0.65);
+  margin-bottom: 2px;
+}
+
+.credit-panel__meta dd {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
 .credit-panel__note {
   max-width: 50ch;
   font-size: 0.92rem;
@@ -1036,24 +1078,80 @@ a {
   margin-bottom: 24px;
 }
 
+.credit-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* .btn-whatsapp is full-width on the product page; inside the panel it sits
+   next to the Messenger button instead */
 .credit-panel .btn-whatsapp {
   display: inline-block;
   width: auto;
+  margin-bottom: 0;
+}
+
+.credit-steps {
+  margin-bottom: 48px;
+}
+
+.credit-steps h2,
+.credit-history h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+
+.credit-steps__list {
+  list-style: none;
+  counter-reset: credit-step;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 60ch;
+}
+
+.credit-steps__list li {
+  counter-increment: credit-step;
+  position: relative;
+  padding-left: 30px;
+  font-size: 0.92rem;
+  color: rgba(13, 59, 62, 0.9);
+}
+
+.credit-steps__list li::before {
+  content: counter(credit-step);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(13, 59, 62, 0.25);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--active-green);
 }
 
 .credit-history {
   margin-bottom: 60px;
 }
 
-.credit-history h2 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-weight: 500;
-  font-size: 1.3rem;
+.credit-history__intro {
+  max-width: 60ch;
+  font-size: 0.92rem;
+  color: rgba(13, 59, 62, 0.7);
   margin-bottom: 20px;
 }
 
 .credit-history__list {
   list-style: none;
+  border-top: 1px solid rgba(13, 59, 62, 0.12);
 }
 
 .credit-history__list li {
@@ -1079,6 +1177,16 @@ a {
   font-weight: 600;
   color: var(--active-green);
   white-space: nowrap;
+}
+
+.credit-history__total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  font-size: 0.92rem;
+  font-weight: 500;
 }
 
 .size-chart table {
@@ -1191,6 +1299,34 @@ a {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+
+  .profile-page {
+    padding: 40px 24px 80px;
+  }
+
+  .credit-panel {
+    padding: 32px 24px;
+  }
+
+  .credit-panel__amount {
+    font-size: 2.4rem;
+  }
+
+  /* stack the two contact buttons full-width so both stay easy to tap */
+  .credit-panel .credit-panel__actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* date moves onto its own line, description and amount share the next */
+  .credit-history__list li {
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+
+  .credit-history__date {
+    flex: 0 0 100%;
   }
 }
 
